@@ -52,7 +52,9 @@ pipeline {
     post {
     	always {
     		echo 'this will always run'
-            junit 'build/reports/**/*.xml'
+            mail to: 'team@example.com',
+            subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+            body: "Something is wrong with ${env.BUILD_URL}"
     	}
 
     	success {
