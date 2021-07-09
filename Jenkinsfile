@@ -54,7 +54,7 @@ pipeline {
 
 		    }
 		}
-
+        /*
         stage ('Report') { 
           steps {
             // install required gems
@@ -76,7 +76,7 @@ pipeline {
                 reportName: 'RCov Report'
               ]
           }
-      }
+      }*/
 
     }
 
