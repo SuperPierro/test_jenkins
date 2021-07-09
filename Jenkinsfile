@@ -52,7 +52,7 @@ pipeline {
     post {
     	always {
     		echo 'this will always run'
-            mail to: 'team@example.com',
+            mail to: 'poirier.pier@gmail.com',
             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
             body: "Something is wrong with ${env.BUILD_URL}"
     	}
