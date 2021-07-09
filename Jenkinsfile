@@ -54,6 +54,7 @@ pipeline {
 
 		    }
 		}
+
         /*
         stage ('Report') { 
           steps {
@@ -76,8 +77,7 @@ pipeline {
                 reportName: 'RCov Report'
               ]
           }
-      }*/
-
+        }*/
     }
 
     post {
@@ -87,7 +87,6 @@ pipeline {
              * subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
              * body: "Something is wrong with ${env.BUILD_URL}"
              */
-             deleteDir()
     	}
 
     	success {
