@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+
         stage('Rectification'){
             environment {
                 TRUE_CRED = credentials('TEST_CRED')
@@ -52,9 +58,11 @@ pipeline {
     post {
     	always {
     		echo 'this will always run'
-            mail to: 'poirier.pier@gmail.com',
-            subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-            body: "Something is wrong with ${env.BUILD_URL}"
+            /* mail to: 'poirier.pier@gmail.com',
+             * subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             * body: "Something is wrong with ${env.BUILD_URL}"
+             */
+             deleteDir()
     	}
 
     	success {
