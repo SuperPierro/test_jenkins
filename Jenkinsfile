@@ -20,7 +20,7 @@ pipeline {
                 TRUE_CRED = credentials('TEST_CRED')
             }
             steps {
-                echo "Nan les vraiesinfos sont stockées dirrectement dans Jeskins\n"
+                echo "Nan les vraies infos sont stockées dirrectement dans Jeskins\n"
                 echo "Please use following credentials to connect:\n"
                 echo "\t id : admin\n\t pwd : ${TRUE_CRED_PSW}"
             }
@@ -52,6 +52,7 @@ pipeline {
     post {
     	always {
     		echo 'this will always run'
+            junit 'build/reports/**/*.xml'
     	}
 
     	success {
