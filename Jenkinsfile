@@ -1,6 +1,20 @@
 pipeline {
     agent any
+
+    environment {
+        VERSION_NUMBER = '6.2.3'
+        PASSWORD = 'abc123'
+    }
+
     stages {
+        stage('Initialisation'){
+            steps {
+                echo "JeskinsFile version : ${VERSION_NUMBER}\n"
+                echo "Please use following credentials to connect:\n"
+                echo "\t id : admin\n\t pwd : ${PASSWORD}"
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'echo "CA a l air de marcher mouahahaha"'
