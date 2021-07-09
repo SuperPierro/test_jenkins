@@ -76,6 +76,7 @@ pipeline {
                 reportName: 'RCov Report'
               ]
           }
+      }
 
     }
 
