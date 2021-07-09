@@ -15,6 +15,17 @@ pipeline {
             }
         }
 
+        stage('Rectification'){
+            environment {
+                TRUE_CRED = credentials('TEST_CRED')
+            }
+            steps {
+                echo "Nan les vraiesinfos sont stockées dirrectement dans Jeskins\n"
+                echo "Please use following credentials to connect:\n"
+                echo "\t id : admin\n\t pwd : ${TRUE_CRED_PSW}"
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'echo "CA a l air de marcher mouahahaha"'
