@@ -52,6 +52,8 @@ pipeline {
 			    	sh './health-check.sh'
 				}
 
+                archive includes: 'pkg/*.gem'
+
                 publishHTML target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
