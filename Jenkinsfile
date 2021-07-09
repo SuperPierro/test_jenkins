@@ -51,6 +51,15 @@ pipeline {
 				timeout(time: 3,unit: 'MINUTES'){
 			    	sh './health-check.sh'
 				}
+
+                publishHTML target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'coverage',
+                    reportFiles: 'index.html',
+                    reportName: 'RCov Report'
+                ]
 		    }
 		}
     }
